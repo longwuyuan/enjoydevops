@@ -5,7 +5,7 @@ pipeline {
 			steps {
 				echo 'Building'
         cd src
-        ls -l
+        sh 'ls -l'
 			}
 		}
 		stage(test) {
