@@ -5,6 +5,9 @@ pipeline {
 			steps {
 				echo 'Building'
         sh 'ls -l'
+        sh 'id'
+        sh 'who am i'
+        sh 'docker ps'
         sh 'docker build -t enjoydevops .'
 			}
 		}
