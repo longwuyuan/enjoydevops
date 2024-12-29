@@ -5,9 +5,7 @@ pipeline {
 			steps {
 				echo 'Building'
         sh 'ls -l'
-        script {
-            kubernetes.image().withName("enjoydevops").build().fromPath(".")
-          }
+        sh 'docker build -t enjoydevops .'
 			}
 		}
 		stage(test) {
