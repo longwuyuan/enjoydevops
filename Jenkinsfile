@@ -4,8 +4,8 @@ pipeline {
 		stage(build) {
 			steps {
 				echo 'Building'
-        sh 'cd src'
         sh 'ls -l'
+        sh 'docker build -t enjoydevops .'
 			}
 		}
 		stage(test) {
