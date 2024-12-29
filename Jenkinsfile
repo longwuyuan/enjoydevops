@@ -4,6 +4,8 @@ pipeline {
 		stage(build) {
 			steps {
 				echo 'Building'
+        cd src
+        ls -l
 			}
 		}
 		stage(test) {
