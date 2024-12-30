@@ -14,6 +14,11 @@ pipeline {
 		stage(test) {
 			steps {
 				echo 'Testing'
+        sh 'ls -l'
+        sh 'id'
+        sh 'who am i'
+        sh 'docker ps'
+				sh 'docker images'
 			}
 		}
 		stage(deploy) {
