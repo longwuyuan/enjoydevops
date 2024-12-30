@@ -29,4 +29,6 @@ workflows:
   ci-build:
     jobs:
       - build
-      - test    
+      - test:
+          requires:
+          - build
