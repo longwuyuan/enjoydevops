@@ -7,7 +7,7 @@ version: 2.1
 jobs:
   cicd:
     docker:
-      image: cimg/base:current
+      - image: cimg/base:current
     steps:
       - checkout
 
@@ -17,7 +17,6 @@ jobs:
       - run: |
           echo testing
           docker images
-      - store-test-results
       - run: echo deploying
 
 # Orchestrate jobs using workflows
