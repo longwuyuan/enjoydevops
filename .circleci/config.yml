@@ -6,8 +6,8 @@ version: 2.1
 # See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
 jobs:
   cicd:
-    docker:
-      - image: cimg/base:current
+    machine:
+      - image: image: ubuntu-2004:current
     steps:
       - checkout
 
