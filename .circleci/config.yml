@@ -5,15 +5,14 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  cicd:
+  build:
     machine:
       image: ubuntu-2004:current
     steps:
       - checkout
-
       - run: |
           echo "building docker image"
-          docker build -t enjoydevops .
+          docker build -t enjoydevops:$CIRCLE_BRANCH-$CIRCLE_SHA1 .
       - run: |
           echo testing
           docker images
@@ -22,6 +21,7 @@ jobs:
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  enjoydevops-cicd:
+  ci-build:
     jobs:
-      - cicd
+      - build
+    
