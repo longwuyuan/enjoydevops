@@ -10,9 +10,14 @@ jobs:
       image: ubuntu-2004:current
     steps:
       - checkout
-      - run: |
-          echo "building docker image"
-          docker build -t enjoydevops:$CIRCLE_BRANCH-$CIRCLE_SHA1 .
+      - run:
+          name: "building docker image"
+          command: docker build -t enjoydevops:$CIRCLE_BRANCH-$CIRCLE_SHA1 .
+
+  test:
+    machine:
+      image: ubuntu-2004:current
+    steps:
       - run: |
           echo testing
           docker images
@@ -24,4 +29,4 @@ workflows:
   ci-build:
     jobs:
       - build
-    
+      - test    
