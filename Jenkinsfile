@@ -8,7 +8,7 @@ pipeline {
         sh 'id'
         sh 'who am i'
         sh 'docker ps'
-        sh 'docker build -t enjoydevops .'
+        sh 'docker build -t enjoydevops:${BRANCH_NAME}-${BUILD_ID} .'
 			}
 		}
 		stage(test) {
