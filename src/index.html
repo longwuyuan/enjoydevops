@@ -3,66 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnjoyDevOps | Professional IT Services</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <title>Professional DevOps Engineer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <h1>EnjoyDevOps</h1>
-            </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Your DevOps Transformation Starts Here</h2>
-                <p>Streamline operations, improve collaboration, and increase efficiency with our expert DevOps solutions.</p>
-            </div>
-        </section>
+        <div class="container">
+            <h1>Welcome to My DevOps Portfolio</h1>
+            <p>Delivering reliable, scalable, and automated solutions for modern IT infrastructure.</p>
+            <a href="#services" class="cta-button">Explore My Expertise</a>
+        </div>
     </header>
 
-    <main>
-        <section id="about" class="about">
-            <div class="container">
-                <h2>About Us</h2>
-                <p>We are a team of experienced professionals dedicated to helping businesses streamline their development and operations processes. Our DevOps services empower companies to embrace automation, continuous integration, and infrastructure as code.</p>
-            </div>
-        </section>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a seasoned DevOps engineer with expertise in automating deployment pipelines, managing cloud infrastructure, and implementing robust monitoring systems to ensure uptime and performance.</p>
+            <p>With years of experience across various industries, I specialize in tools like Jenkins, Docker, Kubernetes, Terraform, and AWS.</p>
+        </div>
+    </section>
 
-        <section id="services" class="services">
-            <div class="container">
-                <h2>Our Services</h2>
-                <div class="service-cards">
-                    <div class="service-card">
-                        <h3>Continuous Integration</h3>
-                        <p>Automate your software build and deployment pipeline for faster and more reliable releases.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Infrastructure Automation</h3>
-                        <p>Leverage Infrastructure as Code (IaC) to manage your infrastructure more efficiently and with less manual intervention.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Cloud Solutions</h3>
-                        <p>Optimize cloud infrastructure management and scale with ease while reducing costs and improving performance.</p>
-                    </div>
-                </div>
+    <section id="services" class="services">
+        <div class="container">
+            <h2>My Services</h2>
+            <div class="service">
+                <h3>CI/CD Implementation</h3>
+                <p>Streamline your software delivery lifecycle with cutting-edge CI/CD practices.</p>
             </div>
-        </section>
+            <div class="service">
+                <h3>Cloud Infrastructure</h3>
+                <p>Design, deploy, and manage scalable infrastructure on AWS, Azure, and Google Cloud.</p>
+            </div>
+            <div class="service">
+                <h3>Automation and Scripting</h3>
+                <p>Automate repetitive tasks using Python, Bash, and PowerShell to save time and reduce errors.</p>
+            </div>
+            <div class="service">
+                <h3>Monitoring & Logging</h3>
+                <p>Enhance visibility into your systems with Prometheus, Grafana, ELK, and more.</p>
+            </div>
+        </div>
+    </section>
 
-    </main>
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2>Technical Insights</h2>
+            <div id="blog-posts" class="blog-posts">
+                <!-- Blog Posts will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Modal for editing blog post -->
+        <div id="edit-modal" class="modal">
+            <div class="modal-content">
+                <span id="close-edit-modal" class="close">&times;</span>
+                <h3>Edit Blog Post</h3>
+                <form id="edit-form">
+                    <input type="text" id="edit-title" placeholder="Title" required />
+                    <input type="text" id="edit-date" placeholder="Date (e.g., December 31, 2024)" required />
+                    <textarea id="edit-excerpt" placeholder="Excerpt" required></textarea>
+                    <textarea id="edit-full-content" placeholder="Full Content" required></textarea>
+                    <button type="submit" class="cta-button">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 EnjoyDevOps. All rights reserved.</p>
-            <p>Contact us at: <a href="mailto:support@enjoydevops.com">support@enjoydevops.com</a></p>
+            <p>&copy; 2024 Professional DevOps Engineer. All rights reserved.</p>
+            <p>Contact me at: <a href="mailto:devops.pro@example.com">devops.pro@example.com</a></p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+

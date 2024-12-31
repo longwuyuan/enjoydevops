@@ -24,6 +24,9 @@ pipeline {
 		stage(deploy) {
 			steps {
 				echo 'Deploying'
+				sh 'which kubectl'
+				sh 'kubectl get ns'
+
 			}
 		}
 	}
