@@ -3,57 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>enjoydevops.com</title>
+    <title>EnjoyDevOps | Professional IT Services</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
-            <ul class="nav-bar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <div class="logo">
+                <h1>EnjoyDevOps</h1>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Your DevOps Transformation Starts Here</h2>
+                <p>Streamline operations, improve collaboration, and increase efficiency with our expert DevOps solutions.</p>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </section>
     </header>
 
     <main>
-        <section id="hero" class="hero-section">
-            <h1>Welcome to enjoydevops.com</h1>
-            <p>Your partner in achieving seamless CI/CD and scalable infrastructure.</p>
-            <a href="services.html" class="btn">Learn More</a>
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>We are a team of experienced professionals dedicated to helping businesses streamline their development and operations processes. Our DevOps services empower companies to embrace automation, continuous integration, and infrastructure as code.</p>
+            </div>
         </section>
 
-        <section id="features" class="features-section">
-            <h2>Our Features</h2>
-            <div class="feature">
-                <img src="images/automation.jpg" alt="Automation">
-                <h3>Automation</h3>
-                <p>Streamline your workflows with advanced automation solutions.</p>
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <h3>Continuous Integration</h3>
+                        <p>Automate your software build and deployment pipeline for faster and more reliable releases.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Infrastructure Automation</h3>
+                        <p>Leverage Infrastructure as Code (IaC) to manage your infrastructure more efficiently and with less manual intervention.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Cloud Solutions</h3>
+                        <p>Optimize cloud infrastructure management and scale with ease while reducing costs and improving performance.</p>
+                    </div>
+                </div>
             </div>
-            <div class="feature">
-                <img src="images/scalability.jpg" alt="Scalability">
-                <h3>Scalability</h3>
-                <p>Build scalable systems to grow with your business needs.</p>
+        </section>
+
+        <section id="blog" class="blog">
+            <div class="container">
+                <h2>Our Latest Blog Posts</h2>
+                <div class="blog-posts">
+                    <div class="blog-post">
+                        <h3>Understanding Continuous Integration in DevOps</h3>
+                        <p class="post-date">December 31, 2024</p>
+                        <p>Continuous Integration (CI) plays a pivotal role in accelerating software development cycles. In this post, we’ll dive into CI and how it fits within the DevOps pipeline...</p>
+                        <a href="#readmore" class="cta-button">Read More</a>
+                    </div>
+                    <div class="blog-post">
+                        <h3>Automating Infrastructure with Terraform</h3>
+                        <p class="post-date">December 30, 2024</p>
+                        <p>Learn how Terraform can help you manage and automate your cloud infrastructure using Infrastructure as Code. This guide walks through key Terraform concepts...</p>
+                        <a href="#readmore" class="cta-button">Read More</a>
+                    </div>
+                    <div class="blog-post">
+                        <h3>Best Practices for DevOps in Cloud Environments</h3>
+                        <p class="post-date">December 29, 2024</p>
+                        <p>Cloud environments are becoming essential for modern DevOps practices. Here, we explore the best practices that help improve efficiency, scalability, and cost-effectiveness...</p>
+                        <a href="#readmore" class="cta-button">Read More</a>
+                    </div>
+                </div>
             </div>
-            <div class="feature">
-                <img src="images/monitoring.jpg" alt="Monitoring">
-                <h3>Monitoring</h3>
-                <p>24/7 monitoring to ensure system reliability and performance.</p>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <div class="testimonial-cards">
+                    <div class="testimonial-card">
+                        <p>"The EnjoyDevOps team transformed our workflow, drastically improving deployment speed and reducing downtime. Highly recommend!"</p>
+                        <cite>- Jane Doe, CTO at TechCorp</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Their expertise in cloud automation helped us save significantly on infrastructure costs while enhancing performance."</p>
+                        <cite>- John Smith, VP of Engineering at InnovateX</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <form action="#" method="POST">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 enjoydevops.com. All rights reserved.</p>
-        <ul class="footer-links">
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
+        <div class="container">
+            <p>&copy; 2024 EnjoyDevOps. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
+
