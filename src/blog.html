@@ -1,0 +1,78 @@
+<!-- blog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - enjoydevops.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Blog</h1>
+        <form id="blog-form">
+            <label for="blog-title">Title:</label>
+            <input type="text" id="blog-title" name="title" required>
+
+            <label for="blog-content">Content:</label>
+            <textarea id="blog-content" name="content" rows="5" required></textarea>
+
+            <button type="button" id="add-blog">Add Blog</button>
+        </form>
+
+        <section id="blog-posts">
+            <h2>Latest Posts</h2>
+            <article>
+                <h3>Introduction to DevOps</h3>
+                <p>Explore how DevOps bridges the gap between development and operations for faster delivery.</p>
+            </article>
+            <article>
+                <h3>Top CI/CD Tools for 2024</h3>
+                <p>Discover the best tools to streamline your CI/CD pipelines and workflows.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 enjoydevops.com. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('add-blog').addEventListener('click', function () {
+            const title = document.getElementById('blog-title').value;
+            const content = document.getElementById('blog-content').value;
+
+            if (title && content) {
+                const blogSection = document.getElementById('blog-posts');
+                const article = document.createElement('article');
+                const blogTitle = document.createElement('h3');
+                blogTitle.textContent = title;
+                const blogContent = document.createElement('p');
+                blogContent.textContent = content;
+
+                article.appendChild(blogTitle);
+                article.appendChild(blogContent);
+                blogSection.appendChild(article);
+
+                document.getElementById('blog-form').reset();
+            } else {
+                alert('Please fill out both fields!');
+            }
+        });
+    </script>
+</body>
+</html>
+

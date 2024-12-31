@@ -4,82 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>enjoydevops.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
-    <div id="root"></div>
-    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-    <script type="text/javascript">
-        const navStyle = {
-            textDecoration: 'none',
-            margin: '0 15px',
-            color: '#28a745',
-            fontWeight: 'bold'
-        };
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        const serviceStyle = {
-            background: '#fff',
-            border: '1px solid #ddd',
-            borderRadius: '8px',
-            padding: '1rem',
-            width: '300px',
-            textAlign: 'left',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-        };
+    <main>
+        <section id="hero">
+            <h1>Welcome to enjoydevops.com</h1>
+            <p>Your partner in achieving seamless CI/CD and scalable infrastructure.</p>
+            <a href="services.html" class="btn">Learn More</a>
+        </section>
 
-        const services = [
-            { title: 'Continuous Integration', description: 'We will design, deploy & maintain your Gitops, ArgoCD, Jenkins, CircleCI, and other devops code. Your build and testing pipelines will provide fast feedback. You will get predictable secure delivery of changes, with improved quality. Our engineer will integrate seamlessly with your developers & environment.' },
-            { title: 'Infrastructure as Code', description: 'We will create, sustain and enhance your Terraform/OpenTofu/Pulumi/CAPI code. Your infrastructure will use code for idempotent, reliable & secure provisioning. You get automation for your infrastructure management.' },
-            { title: 'Monitoring & Logging', description: 'We will plan, implement & support Prometheus, Grafana, Loki, Opentelemetry, ELK/EFK or other observability stacks. You gain insights into your systems with robust monitoring and logging solutions. You will detect issues proactively & get optimal performance from your stack.' },
-            { title: 'Cloud Solutions', description: 'We will leverage cloud platforms to achieve scalability and cost-efficiency. We specialize in AWS, Azure, and Google Cloud for deploying highly available systems. Besides compute, we will enrich your system as needed with DBs, queues and other cloud services, as needed.' }
-        ];
+        <section id="features">
+            <h2>Our Features</h2>
+            <div class="feature">
+                <img src="images/automation.jpg" alt="Automation">
+                <h3>Automation</h3>
+                <p>Streamline your workflows with advanced automation solutions.</p>
+            </div>
+            <div class="feature">
+                <img src="images/scalability.jpg" alt="Scalability">
+                <h3>Scalability</h3>
+                <p>Build scalable systems to grow with your business needs.</p>
+            </div>
+            <div class="feature">
+                <img src="images/monitoring.jpg" alt="Monitoring">
+                <h3>Monitoring</h3>
+                <p>24/7 monitoring to ensure system reliability and performance.</p>
+            </div>
+        </section>
+    </main>
 
-        function App() {
-            return React.createElement('div', null,
-                React.createElement('header', { style: { background: '#28a745', color: '#fff', padding: '1rem 0', textAlign: 'center' } },
-                    React.createElement('h1', null, 'enjoydevops.com'),
-                    React.createElement('p', null, 'Enjoy Streamlining Your Software Development and IT Operations')
-                ),
-                React.createElement('nav', { style: { textAlign: 'center', margin: '1rem 0' } },
-                    React.createElement('a', { href: '#home', style: navStyle }, 'Home'),
-                    React.createElement('a', { href: '#about', style: navStyle }, 'About'),
-                    React.createElement('a', { href: '#services', style: navStyle }, 'Services'),
-                    React.createElement('a', { href: '#contact', style: navStyle }, 'Contact')
-                ),
-                React.createElement('main', { style: { padding: '2rem', textAlign: 'center' } },
-                    React.createElement('section', { id: 'home' },
-                        React.createElement('h2', null, 'Welcome to enjoydevops.com'),
-                        React.createElement('p', null, 'Your one-stop solution for seamless software development and IT operations integration. We bring efficiency, scalability, and reliability to your workflows.')
-                    ),
-                    React.createElement('section', { id: 'about' },
-                        React.createElement('h2', null, 'About Us'),
-                        React.createElement('p', null, 'enjoydevops.com was founded with the mission to empower businesses through automation and streamlined processes. Our team of experts is dedicated to delivering cutting-edge solutions tailored to your needs.'),
-                        React.createElement('p', null, 'With years of experience in DevOps practices, we help businesses embrace a culture of collaboration and continuous improvement.')
-                    ),
-                    React.createElement('section', { id: 'services' },
-                        React.createElement('h2', null, 'Our Services'),
-                        React.createElement('p', null, 'We provide top-notch DevOps solutions to help your business scale efficiently and effectively.'),
-                        React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', marginTop: '2rem' } },
-                            services.map(service => React.createElement('div', { key: service.title, style: serviceStyle },
-                                React.createElement('h3', { style: { color: '#28a745' } }, service.title),
-                                React.createElement('p', null, service.description)
-                            ))
-                        )
-                    ),
-                    React.createElement('section', { id: 'contact' },
-                        React.createElement('h2', null, 'Contact Us'),
-                        React.createElement('p', null, "We'd love to hear from you! Reach out to us for consultations, inquiries, or support."),
-                        React.createElement('p', null, 'Email: ', React.createElement('a', { href: 'mailto:support@enjoydevops.com' }, 'support@enjoydevops.com')),
-                    )
-                ),
-                React.createElement('footer', { style: { background: '#333', color: '#fff', textAlign: 'center', padding: '1rem', marginTop: '2rem' } },
-                    React.createElement('p', null, '© 2024 enjoydevops.com. All rights reserved. Contact us at support@enjoydevops.com for more information.')
-                )
-            );
-        }
-
-        ReactDOM.render(React.createElement(App), document.getElementById('root'));
-    </script>
+    <footer>
+        <p>&copy; 2024 enjoydevops.com. All rights reserved.</p>
+    </footer>
 </body>
 </html>
 
