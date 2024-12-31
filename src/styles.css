@@ -129,5 +129,10 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
+/* Reuse modal styles for the edit modal */
+#edit-modal {
+    display: none;
+}
+
 /* Other sections unchanged */
 

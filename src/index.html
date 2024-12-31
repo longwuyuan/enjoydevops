@@ -58,31 +58,33 @@
             </div>
         </section>
 
-        <section id="blog" class="blog">
-            <div class="container">
-                <h2>Our Latest Blog Posts</h2>
-                <div class="blog-posts">
-                    <div class="blog-post">
-                        <h3>Understanding Continuous Integration in DevOps</h3>
-                        <p class="post-date">December 31, 2024</p>
-                        <p>Continuous Integration (CI) plays a pivotal role in accelerating software development cycles. In this post, we’ll dive into CI and how it fits within the DevOps pipeline...</p>
-                        <a href="#readmore" class="cta-button">Read More</a>
-                    </div>
-                    <div class="blog-post">
-                        <h3>Automating Infrastructure with Terraform</h3>
-                        <p class="post-date">December 30, 2024</p>
-                        <p>Learn how Terraform can help you manage and automate your cloud infrastructure using Infrastructure as Code. This guide walks through key Terraform concepts...</p>
-                        <a href="#readmore" class="cta-button">Read More</a>
-                    </div>
-                    <div class="blog-post">
-                        <h3>Best Practices for DevOps in Cloud Environments</h3>
-                        <p class="post-date">December 29, 2024</p>
-                        <p>Cloud environments are becoming essential for modern DevOps practices. Here, we explore the best practices that help improve efficiency, scalability, and cost-effectiveness...</p>
-                        <a href="#readmore" class="cta-button">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+				<section id="blog" class="blog">
+						<div class="container">
+								<h2>Our Latest Blog Posts</h2>
+								<input type="text" id="search-bar" placeholder="Search blog posts..." />
+								<div id="blog-posts" class="blog-posts">
+										<!-- Blog Posts will be dynamically added here -->
+								</div>
+						</div>
+
+						<!-- Modal for editing blog post -->
+						<div id="edit-modal" class="modal">
+								<div class="modal-content">
+										<span id="close-edit-modal" class="close">&times;</span>
+										<h3>Edit Blog Post</h3>
+										<form id="edit-form">
+												<input type="text" id="edit-title" placeholder="Title" required />
+												<input type="text" id="edit-date" placeholder="Date (e.g., December 31, 2024)" required />
+												<textarea id="edit-excerpt" placeholder="Excerpt" required></textarea>
+												<textarea id="edit-full-content" placeholder="Full Content" required></textarea>
+												<button type="submit" class="cta-button">Save Changes</button>
+										</form>
+								</div>
+						</div>
+				</section>
+
+
+
 
         <section id="testimonials" class="testimonials">
             <div class="container">
@@ -121,3 +123,85 @@
 </body>
 </html>
 
+<script>
+	let blogPosts = [
+			{
+					title: "Understanding Continuous Integration in DevOps",
+					date: "December 31, 2024",
+					excerpt: "Continuous Integration (CI) plays a pivotal role in accelerating software development cycles...",
+					fullContent: "In this post, we explore the benefits, tools, and best practices for implementing CI in DevOps environments. Continuous Integration ensures code quality and speeds up the delivery pipeline."
+			},
+			{
+					title: "Automating Infrastructure with Terraform",
+					date: "December 30, 2024",
+					excerpt: "Learn how Terraform can help you manage and automate your cloud infrastructure...",
+					fullContent: "Terraform is a powerful tool for Infrastructure as Code (IaC). This guide covers essential Terraform concepts, practical examples, and tips for automating infrastructure efficiently."
+			}
+	];
+
+	const blogPostsContainer = document.getElementById("blog-posts");
+	const editModal = document.getElementById("edit-modal");
+	const closeEditModal = document.getElementById("close-edit-modal");
+	const editForm = document.getElementById("edit-form");
+
+	let editingPostIndex = null;
+
+	// Render blog posts
+	function renderBlogPosts(posts) {
+			blogPostsContainer.innerHTML = ""; // Clear previous content
+			posts.forEach((post, index) => {
+					const blogCard = document.createElement("div");
+					blogCard.classList.add("blog-post");
+					blogCard.innerHTML = `
+							<h3>${post.title}</h3>
+							<p class="post-date">${post.date}</p>
+							<p>${post.excerpt}</p>
+							<button class="read-more" data-index="${index}">Read More</button>
+							<button class="edit" data-index="${index}">Edit</button>
+							<button class="delete" data-index="${index}">Delete</button>
+					`;
+					blogPostsContainer.appendChild(blogCard);
+			});
+	}
+
+	// Edit blog post
+	blogPostsContainer.addEventListener("click", (e) => {
+			if (e.target.classList.contains("edit")) {
+					editingPostIndex = e.target.getAttribute("data-index");
+					const post = blogPosts[editingPostIndex];
+					document.getElementById("edit-title").value = post.title;
+					document.getElementById("edit-date").value = post.date;
+					document.getElementById("edit-excerpt").value = post.excerpt;
+					document.getElementById("edit-full-content").value = post.fullContent;
+					editModal.style.display = "flex";
+			}
+	});
+
+	editForm.addEventListener("submit", (e) => {
+			e.preventDefault();
+			blogPosts[editingPostIndex] = {
+					title: document.getElementById("edit-title").value,
+					date: document.getElementById("edit-date").value,
+					excerpt: document.getElementById("edit-excerpt").value,
+					fullContent: document.getElementById("edit-full-content").value
+			};
+			editModal.style.display = "none";
+			renderBlogPosts(blogPosts);
+	});
+
+	closeEditModal.addEventListener("click", () => {
+			editModal.style.display = "none";
+	});
+
+	// Delete blog post
+	blogPostsContainer.addEventListener("click", (e) => {
+			if (e.target.classList.contains("delete")) {
+					const index = e.target.getAttribute("data-index");
+					blogPosts.splice(index, 1); // Remove the blog post
+					renderBlogPosts(blogPosts);
+			}
+	});
+
+	// Initial render
+	renderBlogPosts(blogPosts);
+</script>
