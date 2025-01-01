@@ -31,7 +31,7 @@ pipeline {
 				sh 'which kubectl'
 				sh 'kubectl get ns'
 				sh '$HOME/go/bin/kind load docker-image  enjoydevops:${BRANCH_NAME}-${IMAGE_TAG}'
-				sh 'kubectl set iamge deployments enjoydevops nginx="docker.io/library/enjoydevops:${BRANCH_NAME}-${IMAGE_TAG}'
+				sh 'kubectl set iamge deployments enjoydevops nginx="docker.io/library/enjoydevops:${BRANCH_NAME}-${IMAGE_TAG}"'
 			}
 		}
 	}
