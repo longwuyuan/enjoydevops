@@ -1,5 +1,8 @@
 pipeline {
 	agent any
+	environment {
+		IMAGE_TAG = getShortSHA()
+	}
 	stages {
 		stage(build) {
 			steps {
@@ -8,7 +11,8 @@ pipeline {
         sh 'id'
         sh 'who am i'
         sh 'docker ps'
-        sh 'docker build -t enjoydevops:${BRANCH_NAME}-${BUILD_ID} .'
+        sh 'docker build -t enjoydevops:${BRANCH_NAME}-${IMAGE_TAG} .'
+        sh 'docker tag  enjoydevops:${BRANCH_NAME}-${IMAGE_TAG} enjoydevops:${BRANCH_NAME}-${BUILD_ID}'
 			}
 		}
 		stage(test) {
@@ -26,8 +30,14 @@ pipeline {
 				echo 'Deploying'
 				sh 'which kubectl'
 				sh 'kubectl get ns'
-
+				sh 'kind load docker-image  enjoydevops:${BRANCH_NAME}-${IMAGE_TAG}'
+				sh 'kubectl set iamge deployments enjoydevops nginx="docker.io/library/enjoydevops:${BRANCH_NAME}-${IMAGE_TAG}'
 			}
 		}
 	}
+}
+
+def getShortSHA(){
+    def commitHash = sh label: '', returnStdout: true, script: 'git rev-parse --short HEAD'
+    return commitHash
 }
