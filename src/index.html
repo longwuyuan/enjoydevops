@@ -74,29 +74,6 @@
             padding: 1rem 0;
             margin-top: 2rem;
         }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-
-        .modal-content {
-            text-align: center;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -148,21 +125,6 @@
                 <!-- Blog Posts will be dynamically added here -->
             </div>
         </div>
-
-        <!-- Modal for editing blog post -->
-        <div id="edit-modal" class="modal">
-            <div class="modal-content">
-                <span id="close-edit-modal" class="close">&times;</span>
-                <h3>Edit Blog Post</h3>
-                <form id="edit-form">
-                    <input type="text" id="edit-title" placeholder="Title" required />
-                    <input type="text" id="edit-date" placeholder="Date (e.g., December 31, 2024)" required />
-                    <textarea id="edit-excerpt" placeholder="Excerpt" required></textarea>
-                    <textarea id="edit-full-content" placeholder="Full Content" required></textarea>
-                    <button type="submit" class="cta-button">Save Changes</button>
-                </form>
-            </div>
-        </div>
     </section>
 
     <footer>
@@ -171,63 +133,6 @@
             <p>Contact us at: <a href="mailto:support@enjoydevops.com">support@enjoydevops.com</a></p>
         </div>
     </footer>
-
-    <script>
-        const blogPostsContainer = document.getElementById('blog-posts');
-
-        function addBlogPost(title, date, excerpt) {
-            const post = document.createElement('div');
-            post.className = 'blog-post';
-            post.innerHTML = `
-                <h3>${title}</h3>
-                <p><strong>${date}</strong></p>
-                <p>${excerpt}</p>
-                <button onclick="editBlogPost(this)">Edit</button>
-                <button onclick="deleteBlogPost(this)">Delete</button>
-            `;
-            blogPostsContainer.appendChild(post);
-        }
-
-        function editBlogPost(button) {
-            const post = button.parentElement;
-            const title = post.querySelector('h3').textContent;
-            const date = post.querySelector('p strong').textContent;
-            const excerpt = post.querySelector('p:nth-child(3)').textContent;
-
-            document.getElementById('edit-title').value = title;
-            document.getElementById('edit-date').value = date;
-            document.getElementById('edit-excerpt').value = excerpt;
-
-            document.getElementById('edit-modal').style.display = 'block';
-        }
-
-        function deleteBlogPost(button) {
-            const post = button.parentElement;
-            blogPostsContainer.removeChild(post);
-        }
-
-        document.getElementById('edit-form').onsubmit = function (event) {
-            event.preventDefault();
-            const title = document.getElementById('edit-title').value;
-            const date = document.getElementById('edit-date').value;
-            const excerpt = document.getElementById('edit-excerpt').value;
-
-            const selectedPost = document.querySelector('.blog-post');
-            selectedPost.querySelector('h3').textContent = title;
-            selectedPost.querySelector('p strong').textContent = date;
-            selectedPost.querySelector('p:nth-child(3)').textContent = excerpt;
-
-            document.getElementById('edit-modal').style.display = 'none';
-        };
-
-        document.getElementById('close-edit-modal').onclick = function () {
-            document.getElementById('edit-modal').style.display = 'none';
-        };
-
-        // Example blog posts
-        addBlogPost('Getting Started with Kubernetes', 'December 1, 2024', 'A beginner-friendly guide to Kubernetes.');
-        addBlogPost('Best Practices for CI/CD Pipelines', 'November 25, 2024', 'Enhance your DevOps practices with CI/CD.');
-    </script>
 </body>
 </html>
 
