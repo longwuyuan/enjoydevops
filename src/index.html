@@ -27,19 +27,30 @@
             margin: 0 auto;
         }
 
-        h1, h2 {
-            margin-bottom: 1rem;
+        nav {
+            text-align: center;
+            margin: 1rem 0;
         }
 
-        .cta-button {
-            display: inline-block;
-            background-color: #ff5722;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 5px;
+        nav a {
+            margin: 0 1rem;
             text-decoration: none;
-            margin-top: 1rem;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2px solid #4caf50;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        h1, h2 {
+            margin-bottom: 1rem;
         }
 
         section {
@@ -81,9 +92,14 @@
         <div class="container">
             <h1>Welcome to EnjoyDevOps</h1>
             <p>We enjoy delivering professional DevOps solutions for your modern business needs.</p>
-            <a href="#services" class="cta-button">Discover Our Services</a>
         </div>
     </header>
+
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#blog">Blog</a>
+    </nav>
 
     <section id="about" class="about">
         <div class="container">
